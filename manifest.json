@@ -9,15 +9,6 @@
   },
   "permissions": ["storage", "webRequest", "tabs", "declarativeNetRequest"],
   "host_permissions": ["<all_urls>"],
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "ruleset",
-        "enabled": false,
-        "path": "/rules/redirect-rule.json"
-      }
-    ]
-  },
   "web_accessible_resources": [
     {
       "resources": ["/block/*", "/assets/*"],

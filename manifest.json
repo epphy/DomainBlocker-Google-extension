@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "DomainBlocker",
+  "description": "Blocks entered domains",
+  "version": "1.0",
+  "action": {
+    "default_icon": "/assets/icon.png",
+    "default_popup": "/popup/popup.html"
+  },
+  "permissions": ["storage", "webRequest", "tabs", "declarativeNetRequest"],
+  "host_permissions": ["<all_urls>"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset",
+        "enabled": false,
+        "path": "/rules/redirect-rule.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["/block/*", "/assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "/background.js"
+  }
+}

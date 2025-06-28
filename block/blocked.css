@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* #707dff - blue */
+/* #545454 - gray */
+
+body {
+     font-family: "Montserrat", sans-serif;
+     background-color: #707dff;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.wrapper {
+    background-color: #ffebee;
+    width: 95%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    height: 90%;
+}
+
+.top-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2%;
+    gap: 1.2rem;
+}
+
+.top-container h1 {
+    color: #707dff;
+    font-size: clamp(2.3rem, 3.3vw, 5rem);
+}
+
+.top-container p {
+    color: #545454;
+    font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+}
+
+.top-container #domain-name {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #707dff;
+}
+
+.top-container #domain-name:hover {
+    transition: 100ms ease-in-out;
+    color: #5e6cff;
+    cursor: pointer;
+}
+
+.mid-container img {
+    height: clamp(17rem, 40vh, 50rem); 
+    width: clamp(17rem, 40vw, 50rem); 
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.bottom-container #blocked-by {
+    color: #545454;
+    font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+    margin-top: 1rem;
+}
+
+.bottom-container ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-container .links-menu .links p {
+    color: #707dff;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.4rem, 1.4vw, 2rem);
+}
+
+.bottom-container .links-menu .links p:hover {
+    transition: 100ms ease-in-out;
+    color: #5e6cff;
+    cursor: pointer;
+}

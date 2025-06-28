@@ -1,0 +1,13 @@
+[{
+  "id" : 1,
+  "priority": 1,
+  "action" : { 
+    "type" : "redirect",
+    "redirect": {
+        "extensionPath": "/block/blocked.html"
+    }
+},
+  "condition" : {
+    "resourceTypes" : ["main_frame"]
+  }
+}]

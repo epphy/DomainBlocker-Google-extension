@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DomainBlocker</title>
-    
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    
+    <div class="popup-container">
+        <h1>Blocked Domains</h1>
+        <ul id="blockedList", class="domain-list">
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+        </ul>
+        <div class="add-container">
+            <input type="text" id="domainInput" placeholder="Add domain (example.com)">
+            <button id="addButton">+</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
 </body>
 </html>

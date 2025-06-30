@@ -1,3 +1,10 @@
+const blockedDomainList = updateBlockedDomainList();
+console.log(blockedDomainList.length);
+
+function updateBlockedDomainList() {
+    return chrome.storage.local.get({["blockedDomainList"]: []}).finally;
+}
+
 chrome.webRequest.onBeforeRequest.addListener(
     function (details) {
         const url = details.url;
@@ -18,10 +25,16 @@ chrome.webRequest.onBeforeRequest.addListener(
     []
 );
 
+// fix tabs cannot be edited right now (user may be dragging a tab)
+// Operation not allowed for DevTools windows.
+//
+// You may pass an instance of tab here, checking for
+// the necessary states like whether a user is moving it or is in DevTools.
+//
+// or simply add try catches here.
 function isValidRequest(url) {
-    if (url === "chrome-extension://aplingkdffoigcioeildabnlhkkbcdik/block/blocked.html") {
+    if (url === "chrome-extension://aplingkdffoigcioeildabnlhkkbcdik/block/blocked.html") 
         return false;
-    }
 
     return true;
 }
@@ -31,11 +44,7 @@ function findDomainByUrl(url) {
 }
 
 function isDomainInBlockedList(domain) {
-    // open local storage
-    // get blockedDomainList key
-    // check if this string is included in it
-    // return the answer
-    return false;
+    return blockedDomainList.includes(domain);
 }
 
 function updateSessionStorage(domain, url) {

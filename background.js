@@ -6,13 +6,11 @@ updateBlockedDomainList().then(data => {
     chrome.webRequest.onBeforeRequest.addListener(
         function (details) {
             const url = details.url;
-
             if (!isValidRequest(url)) return;
         
             const domain = findDomainByUrl(url);
+            if (!isDomainInBlockedList(domain)) return;
 
-            if (isDomainInBlockedList(domain)) return;
-        
             updateSessionStorage(domain, url);
             redirectUserToBlockedPage();
         },
@@ -33,6 +31,8 @@ updateBlockedDomainList().then(data => {
     function isValidRequest(url) {
         if (url === "chrome-extension://aplingkdffoigcioeildabnlhkkbcdik/block/blocked.html") 
             return false;
+        else if (url === "chrome-extension://aplingkdffoigcioeildabnlhkkbcdik/popup/popup.html")
+            return false;
 
         return true;
     }
@@ -42,7 +42,6 @@ updateBlockedDomainList().then(data => {
     }
 
     function isDomainInBlockedList(domain) {
-        console.log(blockedDomainList);
         return blockedDomainList.includes(domain);
     }
 
@@ -59,5 +58,5 @@ updateBlockedDomainList().then(data => {
 });
 
 function updateBlockedDomainList() {
-    return chrome.storage.local.get({"blockedDomainList": []});
+    return chrome.storage.sync.get(["blockedDomainList"]) || [];
 }
